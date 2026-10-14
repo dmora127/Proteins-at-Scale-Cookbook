@@ -1,0 +1,62 @@
+# Standalone configuration for previewing or publishing this cookbook on its own.
+#
+# This file is deliberately NOT named myst.yml: the hub site (CHTC Bioinformatics Cookbooks) includes this
+# repository as a git submodule and lists its pages in its own myst.yml. A myst.yml inside the submodule would be
+# picked up by the hub build as a second project and break the site. To preview this cookbook on its own:
+#
+#     cp myst.standalone.yml myst.yml && myst start
+#
+# myst.yml is listed in .gitignore so the local copy is never committed. CI does the same copy before building.
+version: 1
+project:
+  id: 040b694b-918e-4cb0-a684-c45b7010c228
+  title: Proteins at Scale Cookbook
+  description: Recipes for running structural biology and protein workflows at scale on the CHTC high-throughput computing system.
+  keywords:
+    - bioinformatics
+    - structural biology
+    - protein structure prediction
+    - AlphaFold3
+    - GPU
+    - HTCondor
+    - CHTC
+    - high-throughput computing
+  github: https://github.com/dmora127/Proteins-at-Scale-Cookbook
+  license: CC-BY-4.0
+  authors:
+    - name: Daniel A. Morales
+      orcid: 0000-0001-7113-3685
+      affiliation: Center for High Throughput Computing, University of Wisconsin-Madison
+      email: damorales4@wisc.edu
+      url: https://chtc.cs.wisc.edu
+      roles:
+        - Conceptualization
+        - Data Curation
+        - Software
+        - Validation
+        - Visualization
+        - Writing - Original Draft
+        - Writing - Review & Editing
+  toc:
+    - file: index.md
+    - title: Predicting Protein Structures with AlphaFold3 on CHTC GPUs
+      children:
+        - file: 01-AlphaFold3/01.1-Introduction.md
+        - file: 01-AlphaFold3/01.2-Tutorial-Setup.md
+        - file: 01-AlphaFold3/01.3-Data-Wrangling.md
+        - file: 01-AlphaFold3/01.4-Alignment-Generation.md
+        - file: 01-AlphaFold3/01.5-Running-Inference.md
+        - file: 01-AlphaFold3/01.6-Ultra-Large-Complexes.md
+        - file: 01-AlphaFold3/01.7-Visualize-and-Next-Steps.md
+site:
+  template: book-theme
+  options:
+    logo: .images/chtc-logo-color.png
+    logo_dark: .images/chtc-logo-white.png
+    logo_text: Proteins at Scale
+    folders: true
+  nav:
+    - title: All Cookbooks
+      url: https://dmora127.github.io/chtc-biocafe-cookbook/
+    - title: CHTC Guides
+      url: https://chtc.cs.wisc.edu/uw-research-computing/guides
